@@ -1,0 +1,919 @@
+/* 欢迎使用 [ 千赞科技 ] 工具样式 */
+/***************************************************** -webkit-专区 ****************************************************/
+/**
+ * 文本选中背景色透明
+ * ps: 只针对 -webkit- 内核
+ */
+::selection {
+  background: none;
+}
+
+::-moz-selection {
+  background: none;
+}
+
+/**
+ * 以下标签选中时候阴影
+ * ps: 只针对 -webkit- 内核
+ */
+a, img, button, input, textarea, div, span {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+/**
+ * 滚动条
+ */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-corner {
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(246, 246, 246, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(246, 246, 246, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(246, 246, 246, 0.3);
+}
+
+/**
+ * 输入框提示语颜色
+ */
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #9099b7;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #9099b7;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #9099b7;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #9099b7;
+}
+
+/* 抗锯齿 */
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/****************************************************** common专区 *****************************************************/
+html, body {
+  font-family: "Microsoft YaHei UI", "Helvetica Neue", sans-serif;
+}
+
+
+/**
+ * 样式重置
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * a标签设置
+ */
+a {
+  text-decoration: none;
+}
+
+a img {
+  border: 0;
+}
+
+/**
+ * 无序列表
+*/
+ul, li, ol {
+  list-style: none;
+}
+
+/**
+ * 浮动
+ */
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+/**
+ * 清除浮动
+ */
+.clearfix::after {
+  content: " ";
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/**
+ * 文明本位置
+ */
+.align-center {
+  text-align: center !important;
+}
+
+.align-right {
+  text-align: right !important;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+/**
+ *	百分比垂直居中
+ */
+.malign-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.malign-center-text {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/**
+ * 背景图片通用配置
+ */
+.background-img {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.background-full {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+/**
+ * 文字超出显示深省略号
+ */
+.text-overflow-e {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/**
+ *  图片自适应
+ */
+.response-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/**
+ * 动画
+ */
+.ry-animate {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+/************************************************ vue-transition动画 ***************************************************/
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+.slide-left-enter {
+  transform: translateX(30%);
+  opacity: 0;
+}
+.slide-left-leave-to {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all .3s;
+}
+.slide-right-enter {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+.slide-right-leave-to {
+  transform: translateX(30%);
+  opacity: 0;
+}
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all .3s;
+}
+
+
+.select-enter {
+  transform: translateY(-20%);
+  opacity: 0;
+}
+.select-leave-to {
+  opacity: 0;
+}
+.select-enter-active,
+.select-leave-active {
+  transition: all .5s;
+}
+.select-move {
+  transition: transform 0.5s;
+}
+
+
+
+/**
+  向下渐现
+ */
+.fade-down-enter,
+.fade-down-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.fade-down-enter-active,
+.fade-down-leave-active {
+  transition: all 1s;
+}
+
+.fade-down-move {
+  transition: transform 0.5s;
+}
+
+/**
+ 向左渐现
+ */
+.fade-right-enter,
+.fade-right-leave-to {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.fade-right-enter-active,
+.fade-right-leave-active {
+  transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+
+.fade-right-move {
+  transition: transform 0.5s;
+}
+/**
+ 向右渐现
+ */
+.fade-left-enter,
+.fade-left-leave-to {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.fade-left-enter-active,
+.fade-left-leave-active {
+  transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+
+.fade-left-move {
+  transition: transform 0.5s;
+}
+
+/**
+ 放大并且透明
+ */
+.scale-enter,
+.scale-leave-to {
+  opacity: 0;
+  transform: scale(3) translateY(-10%);
+}
+.scale-enter-active,
+.scale-leave-active {
+  transition: all .5s;
+}
+
+/**
+  向上渐现
+ */
+.fade-bottom-enter,
+.fade-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.fade-bottom-enter-active,
+.fade-bottom-leave-active {
+  transition: all 1s cubic-bezier(0.68,-0.4, 0.57, 1.46);
+}
+.fade-bottom-move {
+  transition: transform 0.5s;
+}
+
+/**************************************************** 项目相关 *********************************************************/
+/* 字体 */
+// 字体基数
+$font_size_base: 1920;
+// 字体集合
+$font_size_list: 12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,48,64,60,52;
+// 媒体集合
+$media_list: 1680,1560,1440,1366,1220,1200,1024;
+
+// 生成默认字体 默认
+@for $idx from 1 to length($font_size_list)+1 {
+  .font-#{nth($font_size_list, $idx)} {font-size: nth($font_size_list, $idx)+px};
+}
+
+// 生成多段自适应字体
+@for $idx from 1 to length($media_list)+1 {
+  @media screen and (max-width:#{nth($media_list, $idx)+px}) {
+    @for $idx_ from 1 to length($font_size_list)+1 {
+      .font-#{nth($font_size_list, $idx_)} {font-size: nth($font_size_list, $idx_)*(nth($media_list, $idx)/$font_size_base)+px};
+    }
+
+  }
+}
+
+/* 颜色 */
+.co-white {
+  color: #fff;
+}
+.co-black {
+  color: #000;
+}
+.co-blue-whi {
+  color: #06cbdb;
+}
+.co-orange {
+  color: #ed4e27;
+}
+.co-yellow {
+  color: #fde96c;
+}
+.co-blue-whi2 {
+  color: #3effe5;
+}
+.co-blue-lnk {
+  color: #12e3b7;
+}
+.co-00f{
+  color: #00fff0;
+}
+.co-greem {
+  color: #00ff00;
+}
+.co-violet {
+  color: #ff33cc;
+}
+.co-gra {
+  color: #d5d5d5;
+}
+.co-13e {
+  color: #13e8ea;
+}
+
+.text-white-shadow {
+  text-shadow: 0 0 4px #fff;
+}
+
+.liner-co-blue {
+  //background: -webkit-linear-gradient(left, #63ffde , #10bbfa);
+  //-webkit-background-clip: text;
+  color: #63ffde;
+  //-webkit-text-fill-color: transparent;
+}
+
+
+.liner-co-green-ver {
+  background: -webkit-linear-gradient(top, #58ffb9 , #00dcb6);
+  -webkit-background-clip: text;
+  font-weight: bolder;
+  color: #63ffde;
+  -webkit-text-fill-color: transparent;
+}
+
+/****************************************************  AMap   *********************************************************/
+.amap-marker-content{
+  /* 高德标记样式 - 车辆 */
+  .marker-cars-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: #b6b7c0;
+    animation: fade 1s 1 backwards;
+  }
+
+  /* 班线客车 */
+  .car-type-pcar {
+    background-color: #4eefbe;
+  }
+  .car-type-pcar:hover {
+    background-color: #52fac7;
+    transform: scale(1.2);
+  }
+
+  /* 旅游班车 */
+  .car-type-tourbus {
+    background-color: #28bdf4;
+  }
+  .car-type-tourbus:hover {
+    background-color: #29c7ff;
+    transform: scale(1.2);
+  }
+
+  /* 危险品运输车 */
+  .car-type-risktcar {
+    position: relative;
+    background-color: #d6543b;
+  }
+  .car-type-risktcar:hover {
+    background-color: #d6543b;
+    transform: scale(1.2);
+  }
+  //.car-type-risktcar::after {
+  //  position: absolute;
+  //  left: 50%;
+  //  top: 50%;
+  //  content: ' ';
+  //  border-radius: 100%;
+  //  width: 150%;
+  //  height: 150%;
+  //  box-shadow: inset 0 0 20px #d6543b;
+  //  transform: translate(-50%, -50%);
+  //  animation: zoom 1s linear backwards infinite;
+  //  animation-delay: 1s;
+  //}
+  //.car-type-risktcar::before {
+  //  position: absolute;
+  //  left: 50%;
+  //  top: 50%;
+  //  content: ' ';
+  //  border-radius: 100%;
+  //  width: 200%;
+  //  height: 200%;
+  //  box-shadow: inset 0 0 20px #d6543b;
+  //  transform: translate(-50%, -50%);
+  //  animation: zoom 1s linear backwards infinite;
+  //  animation-delay: 1.5s;
+  //}
+
+  /* 货船 */
+  .car-type-cargoship {
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    background: none;
+    background-image: url("../static/img/dper.main.icon.rb.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  /* 违规车辆 */
+  .car-type-wftcar {
+    position: relative;
+    background-color: #d6b92a;
+  }
+  .car-type-wftcar:hover {
+    background-color: #f1d02f;
+    transform: scale(1.2);
+  }
+  .car-type-wftcar::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: ' ';
+    border-radius: 100%;
+    width: 150%;
+    height: 150%;
+    box-shadow: inset 0 0 20px #f1d02f;
+    transform: translate(-50%, -50%);
+    animation: zoom 1s linear backwards infinite;
+    animation-delay: 1s;
+  }
+  .car-type-wftcar::before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: ' ';
+    border-radius: 100%;
+    width: 200%;
+    height: 200%;
+    box-shadow: inset 0 0 20px #f1d02f;
+    transform: translate(-50%, -50%);
+    animation: zoom 1s linear backwards infinite;
+    animation-delay: 1.5s;
+  }
+
+  /* 高德标记样式 - 卡口 */
+  .marker-video-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url('../static/img/icon_amap_video.png');
+  }
+  .marker-video-icon:hover {
+    animation: roll 1s infinite backwards cubic-bezier(0.18, 1.03, 0.43, 1.4) alternate;
+  }
+
+
+  /* 高德标记样式 - 企业建筑 */
+  .marker-cpy-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url('../static/img/dper.main.icon.cpy.png');
+  }
+  .marker-cpy-icon:hover {
+    animation: roll 1s infinite backwards cubic-bezier(0.18, 1.03, 0.43, 1.4) alternate;
+  }
+
+}
+
+/* 高德Maker标签 */
+.amap-marker-label {
+  border: none;
+  background: none;
+  .marker-cars-label {
+    position: relative;
+    width: 120px;
+    height: 52px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: inset 0 0 16px #85f8f5;
+    background-color: rgba(71, 199, 173, 0.8);
+    animation: fade .2s linear backwards;
+    .dper-icon-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url(../static/img/icon_close.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: center -30px;
+      cursor: pointer;
+    }
+    h4 {
+      position: relative;
+      height: 50%;
+    }
+  }
+  .marker-cars-label:hover {
+    transform: scale(1);
+  }
+  .marker-cars-label::after {
+    position: absolute;
+    left: 28px;
+    top: 98%;
+    z-index: 3;
+    content: ' ';
+    height: 0;
+    width: 0;
+    border-radius: 4px;
+    border: solid transparent;
+    border-top-color: rgba(71, 199, 173, 1);
+    border-width: 10px;
+  }
+
+  .marker-cars-label-big {
+    height: auto;
+    width: auto;
+    min-width: 340px;
+    max-width: 640px;
+    min-height: 120px;
+    font-size: 20px;
+    padding-bottom: 24px;
+    p {
+      padding: 8px;
+      .dper-icon {
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-image: url('../static/img/dper.main.icon.ship.png');
+      }
+      span {
+        display: block;
+        padding-left: 20px;
+        padding-bottom: 4px;
+        height: 24px;
+        line-height: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+    .dper-prms-ship {
+      font-size: 16px;
+      padding-left: 14px;
+      padding-right: 14px;
+      padding-bottom: 4px;
+      em {
+        font-style: normal;
+        margin-right: 24px;
+        color: #004eff;
+      }
+      .state {
+        padding: 4px 10px;
+        margin-right: 61px;
+        border-radius: 24px;
+        font-style: normal;
+        color: #ffffff;
+      }
+      .online {
+        background-color: #0aa258;
+      }
+      .outline {
+        background-color: #e91e63;
+      }
+    }
+  }
+  .marker-cars-label-big::after {
+    top: 99.6% !important;
+  }
+
+  /* 班线客车 */
+  .car-type-tourbus {
+    box-shadow: inset 0 0 16px #47e0f9;
+    background-color: rgba(43, 168, 235, 0.8);
+  }
+  .car-type-tourbus::after {
+    position: absolute;
+    left: 28px;
+    top: 98%;
+    z-index: 3;
+    content: ' ';
+    height: 0;
+    width: 0;
+    border-radius: 4px;
+    border: solid transparent;
+    border-top-color: rgba(43, 168, 235, 1);
+    border-width: 10px;
+  }
+  /* 旅游班车 */
+  .car-type-pcar {
+    box-shadow: inset 0 0 16px #85f8f5;
+    background-color: rgba(71, 199, 173, 0.8);
+  }
+  .car-type-pcar::after {
+    position: absolute;
+    left: 28px;
+    top: 98%;
+    z-index: 3;
+    content: ' ';
+    height: 0;
+    width: 0;
+    border-radius: 4px;
+    border: solid transparent;
+    border-top-color: rgba(71, 199, 173, 1);
+    border-width: 10px;
+  }
+
+  /* 危险品运输车 */
+  .car-type-risktcar {
+    box-shadow: inset 0 0 16px #e2a1ab;
+    background-color: rgba(174, 97, 102, 0.8);
+  }
+  .car-type-risktcar::after {
+    position: absolute;
+    left: 28px;
+    top: 98%;
+    z-index: 3;
+    content: ' ';
+    height: 0;
+    width: 0;
+    border-radius: 4px;
+    border: solid transparent;
+    border-top-color: rgba(174, 97, 102, 1);
+    border-width: 10px;
+  }
+
+  /* 货船 */
+  .car-type-cargoship {
+    box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.58);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .car-type-cargoship::after {
+    position: absolute;
+    left: 28px;
+    top: 98%;
+    z-index: 3;
+    content: ' ';
+    height: 0;
+    width: 0;
+    border-radius: 4px;
+    border: solid transparent;
+    border-top-color: rgba(255, 255, 255, .7);
+    border-width: 10px;
+  }
+
+  /* 违章标记 */
+  .car-type-lllcar {
+    position: relative;
+    width: 752px;
+    height: 282px;
+    padding-left: 3.19%;
+    padding-right: 3.05%;
+    padding-top: 2.65%;
+    padding-bottom: 6.91%;
+    box-sizing: border-box;
+    background-image: url(../static/img/dofpa_bg_carlll_address.png);
+    animation: fade .2s linear backwards;
+    .car-head {
+      position: relative;
+      width: 36.17%;
+      height: 14.28%;
+      .car-text {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 48.23%;
+        font-weight: bolder;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      .car-opes {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 48%;
+        height: 100%;
+        .car-oper {
+          display: inline-block;
+          width: 33%;
+          height: 100%;
+          background-position: right center;
+          background-size: auto;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+      }
+    }
+    .dper-icon-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      display: block;
+      width: 24px;
+      height: 24px;
+      background-image: url(../static/img/icon_close.png);
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: center -2px;
+      cursor: pointer;
+      &:hover {
+        background-position: center -30px;
+      }
+    }
+    .car-content {
+      width: 100%;
+      height: 82%;
+      margin-top: 1%;
+      .car-img {
+        width: 36.17%;
+        height: 100%;
+        border-radius: 3px;
+        border: 1px solid #fff;
+        overflow: hidden;
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .car-desc {
+        width: 60%;
+        height: 100%;
+        overflow: hidden;
+        .car-no {
+          height: 24%;
+          font-weight: bolder;
+          line-height: 1.5;
+        }
+        .car-desc-item {
+          height: 19%;
+          .car-label {
+            display: inline-block;
+            width: 30%;
+          }
+          .car-btext {
+            display: inline-block;
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+  .car-type-lllcar-min {
+    width: 560px;
+    height: 210px;
+  }
+  .car-type-lllcar-sl {
+    width: 120px;
+    height: 90px;
+    overflow: hidden;
+    background-color: #262626;
+    padding: 4px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+@keyframes roll {
+  0%{
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fade {
+  0%{
+    opacity: 0.5;
+    transform: scale(.5);
+  }
+  80%{
+    transform: scale(1.2);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  0%{
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60% {
+    opacity: .8;
+    transform: translate(-50%, -50%) scale(2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3);
+  }
+}
