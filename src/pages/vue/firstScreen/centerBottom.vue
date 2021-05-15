@@ -1,4 +1,5 @@
 <template>
+
   <div class="center-bottom">
         <div class="bot-l">
             <div class="tit" >
@@ -70,7 +71,7 @@
         props:['persons'],
         mounted:function(){
             let that = this;
-            console.log('map',that.persons.sjj)
+            console.log(this.persons)
             that.draw(that.persons.sjj.towns_name);
         },
         methods:{

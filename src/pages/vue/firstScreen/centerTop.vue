@@ -54,25 +54,25 @@
           let that = this;
           const chart =  new ChartWater('charts')
           const chart2 =  new ChartWater('charts2')
-          var numList = [];
-          var maxList = [];
-          for(var i=0;i<that.analysis.length;i++){
-            numList.push(that.analysis[i].value);   
-            that.analysis[i].name = that.analysis[i].title;
-          }
-          chart2.option.radar.indicator = that.analysis;
-          console.log(that.analysis)
-          chart2.option.series[0].data[0].value = numList;
+          console.log('------------')
+          // var numList = [];
+          // var maxList = [];
+          // for(var i=0;i<that.analysis.length;i++){
+          //   numList.push(that.analysis[i].value);   
+          //   that.analysis[i].name = that.analysis[i].title;
+          // }
+          // chart2.option.radar.indicator = that.analysis;
+          // console.log(that.analysis)
+          // chart2.option.series[0].data[0].value = numList;
           chart2.render();
-          var numList1 = [];
-          var maxList1 = [];
-          for(var i=0;i<that.analysisrj.length;i++){
-            numList1.push(that.analysisrj[i].value);
-            that.analysisrj[i].name = that.analysisrj[i].title;
-          }
-          chart.option.radar.indicator = that.analysisrj;
-          debugger
-          chart.option.series[0].data[0].value = numList1
+          // var numList1 = [];
+          // var maxList1 = [];
+          // for(var i=0;i<that.analysisrj.length;i++){
+          //   numList1.push(that.analysisrj[i].value);
+          //   that.analysisrj[i].name = that.analysisrj[i].title;
+          // }
+          // chart.option.radar.indicator = that.analysisrj;
+          // chart.option.series[0].data[0].value = numList1
           chart.render();
     },
     methods:{

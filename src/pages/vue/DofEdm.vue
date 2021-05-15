@@ -119,7 +119,7 @@
         <transition name="fade-left">
         <div class="left" v-if="show.left_bool&&show.first_screen">
             <center-top v-if="others_ready" :analysis='analysis' :analysisrj='analysisrj'></center-top>
-            <center-bottom v-if="others_ready" :persons='persons' @showLeft='showLeft'></center-bottom>
+            <center-bottom :persons='persons' @showLeft='showLeft'></center-bottom>
         </div>
         </transition>
       <!-- <dv-loading>Loading...</dv-loading> -->
@@ -284,13 +284,15 @@ export default {
             metering: [],
             XSInfo: [],
             business: [],
-            area: [],
+            area: [{title:123,value:234},{title:123,value:234},{title:123,value:234},{title:123,value:234}],
             analysis: [],
             analysisrj: [],
-            persons: {},
-            complaint: [],
-            operating: [],
-            protection: [],
+            persons: {sz:{position:'所长'},
+            sjj:{sjj:'供电所组织架构简介供电所组织架构简介供电所组织架构简介供电所组织架构简介供电所组织架构简介'},
+            fsz:[{position:'副所长'},{position:'副所长'}]},
+            complaint: [{title:123,value:23},{title:123,value:23}],
+            operating: [{title:'当月售电',value:1000,unit:'kw/h'},{title:'当月售电',value:1000,unit:'kw/h'},{title:'当月售电',value:1000,unit:'kw/h'}],
+            protection: [{title:123,value:132},{title:123,value:132},{title:123,value:132}],
             showAll: false,
             timestamp: '',
             data_protection: {},
@@ -350,11 +352,22 @@ export default {
         basicRight
     },
     created: function () {
-    
+        debugger
     },
     mounted() {
         let that = this;
+        that.getMetingInfo();
+        
+        setInterval(() => {
+            that.getMetingInfo();
+        }, 1000 * 60 * 10);
+        that.getBusinessInfo();
 
+        setInterval(() => {
+            that.getBusinessInfo();
+        }, 1000 * 60 * 10);
+        that.getXSInfo();
+        that.others_ready = true;
         ryAjax('初始化', config.inter.init, {
             data: {},
             successfn(resp) {
@@ -500,17 +513,25 @@ export default {
         },
         getMetingInfo: function () {
             let that = this;
-            ryAjax('获取首页计量抄通数据', config.inter.getMetingInfo, {
-                data: {},
-                successfn(resp) {
-                    that.metering = resp.jlct;
-                    that.metering_ready = true;
-                    that.metering_time = new Date().format("yyyy-MM-dd hh:mm:ss");
-                }
-            });
+            this.metering = {
+                line:[{title:'21台区',value:1000},{title:'杨树湾台区',value:103},{title:123,value:123}]
+            }
+            this.metering_ready = true;
+            that.metering_time = new Date().format("yyyy-MM-dd hh:mm:ss");
+            // ryAjax('获取首页计量抄通数据', config.inter.getMetingInfo, {
+            //     data: {},
+            //     successfn(resp) {
+            //         that.metering = resp.jlct;
+            //         that.metering_ready = true;
+            //         that.metering_time = new Date().format("yyyy-MM-dd hh:mm:ss");
+            //     }
+            // });
         },
         getXSInfo: function () {
             let that = this;
+            that.XSInfo = {zyxs_num:1,zyxs:[{type:1,value:1},{type:1,value:1}],tqxs:[{type:1,value:1},{type:1,value:1},{type:1,value:1}]};
+            that.XSInfo_ready = true;
+            that.XSInfo_time = new Date().format("yyyy-MM-dd hh:mm:ss");
             ryAjax('获取首页今日线损数据', config.inter.getXSInfo, {
                 data: {},
                 successfn(resp) {
@@ -531,6 +552,9 @@ export default {
         },
         getBusinessInfo: function () {
             let that = this;
+            that.business = [{title:12,value:123},{title:12,value:123},{title:12,value:123}]
+            that.business_ready = true;
+            that.business_time = new Date().format("yyyy-MM-dd hh:mm:ss");
             ryAjax('获取首页业扩新装数据', config.inter.getBusinessInfo, {
                 data: {},
                 successfn(resp) {
@@ -611,6 +635,7 @@ export default {
         //获取经营情况数据
         getOperating: function () {
             let that = this;
+            that.data_operating = 
             ryAjax('获取售电量数据', config.inter.getOperating, {
                 data: {},
                 successfn(resp) {

@@ -383,7 +383,17 @@ export default {
             }
         }
     },
-    props:['data_operating'],
+    props:{
+        data_operating:{
+            type:Object,
+            default:{
+                tqxs:[1,23,4,5,4,36,54,6,456],
+                gs:[{tg_name:'123',num:10}],
+                xsl_rank:[{tg_name:'123',num:10}]
+            }
+            
+        }
+    },
     mounted:function(){
         let that = this;
         that.option.series[0].data = this.data_operating.tqxs;             
